@@ -32,7 +32,7 @@ A **comprehensive health monitoring system** built with **React Native** and **F
    ```bash
    npm install
    ```
-3. **Start serve:**
+3. **Start the server:**
    ```bash
    npm run build
    npm preview
