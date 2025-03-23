@@ -28,6 +28,15 @@ A **comprehensive health monitoring system** built with **React Native** and **F
    git clone https://github.com/your-repo/HealthTrackPro.git
    cd HealthTrackPro
    ```
+2. **Install Dependecies:**
+   ```bash
+   npm install
+   ```
+3. **Start serve:**
+   ```bash
+   npm run build
+   npm preview
+   ```
 ---
 ### 🚀 Stay healthy with HealthTrack Pro!
 
