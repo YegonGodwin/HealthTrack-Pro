@@ -1,34 +1,33 @@
-
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { Menu, X, User, Bell, Moon, Sun } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { useIsMobile } from '@/hooks/use-mobile';
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { Menu, X, User, Bell, Moon, Sun } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const isMobile = useIsMobile();
-  
+
   useEffect(() => {
-    const isDark = localStorage.getItem('darkMode') === 'true';
+    const isDark = localStorage.getItem("darkMode") === "true";
     setIsDarkMode(isDark);
     if (isDark) {
-      document.documentElement.classList.add('dark');
+      document.documentElement.classList.add("dark");
     } else {
-      document.documentElement.classList.remove('dark');
+      document.documentElement.classList.remove("dark");
     }
   }, []);
 
   const toggleDarkMode = () => {
     const newMode = !isDarkMode;
     setIsDarkMode(newMode);
-    localStorage.setItem('darkMode', String(newMode));
-    
+    localStorage.setItem("darkMode", String(newMode));
+
     if (newMode) {
-      document.documentElement.classList.add('dark');
+      document.documentElement.classList.add("dark");
     } else {
-      document.documentElement.classList.remove('dark');
+      document.documentElement.classList.remove("dark");
     }
   };
 
@@ -41,10 +40,10 @@ const Navbar = () => {
   };
 
   const navLinks = [
-    { name: 'Dashboard', path: '/' },
-    { name: 'Metrics', path: '/metrics' },
-    { name: 'Medications', path: '/medications' },
-    { name: 'Appointments', path: '/appointments' }
+    { name: "Dashboard", path: "/" },
+    { name: "Metrics", path: "/metrics" },
+    { name: "Medications", path: "/medications" },
+    { name: "Appointments", path: "/appointments" },
   ];
 
   return (
@@ -54,9 +53,11 @@ const Navbar = () => {
           <div className="flex items-center">
             <Link to="/" className="flex items-center" onClick={closeMenu}>
               <div className="w-10 h-10 rounded-full bg-health-blue flex items-center justify-center mr-2">
-                <div className="text-white font-semibold">HC</div>
+                <div className="text-white font-semibold">HPT</div>
               </div>
-              <span className="text-xl font-medium text-gray-900 dark:text-white">HealthCare</span>
+              <span className="text-xl font-medium text-gray-900 dark:text-white">
+                HealthTrack Pro
+              </span>
             </Link>
           </div>
 
@@ -83,7 +84,7 @@ const Navbar = () => {
             >
               {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
             </Button>
-            
+
             <Button
               variant="ghost"
               size="icon"
@@ -91,7 +92,7 @@ const Navbar = () => {
             >
               <Bell size={20} />
             </Button>
-            
+
             <Button
               variant="ghost"
               size="icon"
@@ -99,7 +100,7 @@ const Navbar = () => {
             >
               <User size={20} />
             </Button>
-            
+
             {isMobile && (
               <Button
                 variant="ghost"
